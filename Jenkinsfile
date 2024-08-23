@@ -1,5 +1,7 @@
 pipline {
     angent any
+
+    //每個CICD的階段
     stages {
         stage("build") {
             steps {
