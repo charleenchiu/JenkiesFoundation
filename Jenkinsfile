@@ -1,6 +1,12 @@
 CODE_CHANGES = getGitChanges()
 pipline {
     angent any
+    // build tools
+    tools {
+        //maven 'Maven'
+        //gradle
+        //jdk
+    }
     //加"環境"變數
     environment {
         NEW_VERSION = '1.3.0'
