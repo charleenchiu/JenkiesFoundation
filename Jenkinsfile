@@ -64,6 +64,7 @@ pipline {
                 ]) {
                     sh "some script ${USER} ${PWD}"
                 }
+                */
 
                 // 使用參數
                 echo "deploying version ${params.VERSION}"
