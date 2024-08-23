@@ -1,30 +1,7 @@
 CODE_CHANGES = getGitChanges()
 pipline {
     angent any
-    // 參數化
-    parameters {
-        string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
-        choice(name: 'VERSION', choices: ['1.1.0','1.2.0','1.3.0'], description: 'version to deploy on prod')
-        booleanParam(name: 'executeTests', defaultValue: true, description: '')
-    }
-    /*
-    // build tools
-    tools {
-        //maven 'Maven'
-        //gradle
-        //jdk
-    }
-    */
-    //加"環境"變數
-    environment {
-        NEW_VERSION = '1.3.0'
-        /*
-        //加憑證
-        SERVER_CREDENTIALS = credentials('d108c9d8-ee58-4628-9d45-7664a50a20b9')
-        //my-app: d108c9d8-ee58-4628-9d45-7664a50a20b9
-        //system: cbb5c283-2b83-46be-a71f-8e64d2366a70
-        */
-    }
+
     //每個CICD的階段
     stages {
         stage("build") {
