@@ -40,6 +40,7 @@ pipline {
             steps {
                 echo 'deploying the application...'
                 // 引用變數一定要用雙引號
+                // 使用憑證
                 echo "deploying with ${SERVER_CREDENTIALS}"
                 sh "${SERVER_CREDENTIALS}"
 
