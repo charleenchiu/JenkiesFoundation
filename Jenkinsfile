@@ -1,6 +1,12 @@
 CODE_CHANGES = getGitChanges()
 pipline {
     angent any
+    // 參數化
+    parameters {
+        string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
+        choice(name: 'VERSION', choices: ['1.1.0','1.2.0','1.3.0'], description: 'version to deploy on prod')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+    }
     // build tools
     tools {
         //maven 'Maven'
@@ -35,6 +41,8 @@ pipline {
             when {
                 expression {
                     BRANCH_NAME == 'dev'
+                    //使用參數
+                    params.executeTests //省略==true
                 }
             }
             steps {
@@ -55,6 +63,9 @@ pipline {
                 ]) {
                     sh "some script ${USER} ${PWD}"
                 }
+
+                // 使用參數
+                echo "deploying version ${params.VERSION}"
             }
         }
     }
