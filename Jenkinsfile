@@ -1,15 +1,26 @@
+CODE_CHANGES = getGitChanges()
 pipline {
     angent any
 
     //每個CICD的階段
     stages {
         stage("build") {
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' && CODE_CHANGES == true
+                }
+            }
             steps {
                 echo 'building the application...'
             }
         }
 
         stage("test") {
+            when {
+                expression {
+                    BRANCH_NAME == 'dev'
+                }
+            }
             steps {
                 echo 'testing the application...'
             }
