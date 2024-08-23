@@ -1,8 +1,6 @@
 CODE_CHANGES = getGitChanges()
 pipline {
     angent any
-
-    //每個CICD的階段
     stages {
         stage("build") {
             when {
